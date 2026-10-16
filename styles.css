@@ -408,10 +408,60 @@ footer p {
     align-items: center;
     justify-content: center;
     padding: 3rem 1.25rem;
-    background:
-        radial-gradient(circle at 85% 20%, rgba(99, 102, 241, 0.15), transparent 45%),
-        radial-gradient(circle at 10% 90%, rgba(236, 72, 153, 0.08), transparent 40%),
-        var(--slate-100);
+    background-color: var(--navy-900);          /* shows while the image loads */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;                            /* shows the background is clickable */
+}
+
+/* ---------- Clickable background pictures ---------- */
+/* The dark layer keeps the text readable; make 0.35 higher for darker, lower for lighter */
+
+/* ---------- Background 1 ---------- */
+.app-main.bg-1 {
+    background-image:
+        linear-gradient(rgba(15, 23, 42, 0.35), rgba(15, 23, 42, 0.35)),
+        url("assets/bg1.jpg");
+}
+
+/* ---------- Background 2 ---------- */
+.app-main.bg-2 {
+    background-image:
+        linear-gradient(rgba(15, 23, 42, 0.35), rgba(15, 23, 42, 0.35)),
+        url("assets/bg2.jpg");
+}
+
+/* ---------- Background 3 ---------- */
+.app-main.bg-3 {
+    background-image:
+        linear-gradient(rgba(15, 23, 42, 0.35), rgba(15, 23, 42, 0.35)),
+        url("assets/bg3.jpg");
+}
+
+/* ---------- Background 4 ---------- */
+.app-main.bg-4 {
+    background-image:
+        linear-gradient(rgba(15, 23, 42, 0.35), rgba(15, 23, 42, 0.35)),
+        url("assets/bg4.jpg");
+}
+
+/* Title + subtitle turn white so they stay readable on a picture */
+.app-container h1 {
+    color: var(--white);
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.5);
+}
+
+.app-subtitle {
+    margin-bottom: 2.5rem;
+    color: #ffffff;                                   /* bright white */
+    font-weight: 500;
+    text-shadow: 0 2px 10px rgba(248, 246, 246, 0.9);      
+}
+
+/* The quote box itself is not part of the clickable background */
+.quote-box {
+    cursor: default;
 }
 
 .app-container {
@@ -421,7 +471,7 @@ footer p {
 }
 
 .app-container h1 {
-    font-size: clamp(1.9rem, 4vw, 2.6rem);
+    font-size: clamp(2.6rem, 6vw, 4rem);
     letter-spacing: -0.5px;
 }
 
@@ -432,10 +482,8 @@ footer p {
 
 /* ---------- Workspace: quote box (left) + character (right) ---------- */
 .workspace-layout {
-    display: grid;
-    grid-template-columns: 1fr 260px;
-    gap: 2rem;
-    align-items: end;
+    max-width: 680px;
+    margin: 0 auto;           /* centers the quote box */
 }
 
 /* Quote card */
@@ -542,45 +590,7 @@ footer p {
     transform: translateY(0);
 }
 
-/* ---------- Anime character slot (click to change picture) ---------- */
-.anime-character-container {
-    width: 100%;
-    min-height: 320px;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: bottom center;
-    filter: drop-shadow(0 0 16px rgba(99, 102, 241, 0.45));
-    cursor: pointer;                       /* shows it's clickable */
-    transition: transform 0.2s ease;
-}
 
-.anime-character-container:hover {
-    transform: scale(1.04);
-}
-
-.anime-character-container:active {
-    transform: scale(0.97);
-}
-
-/* ---------- Photo 1 ---------- */
-.anime-character-container.char-1 {
-    background-image: url("assets/quote-character1.jpg");
-}
-
-/* ---------- Photo 2 ---------- */
-.anime-character-container.char-2 {
-    background-image: url("assets/quote-character2.jpg");
-}
-
-/* ---------- Photo 3 ---------- */
-.anime-character-container.char-3 {
-    background-image: url("assets/quote-character3.jpg");
-}
-
-/* ---------- Photo 5 ---------- */
-.anime-character-container.char-4 {
-    background-image: url("assets/quote-character4.jpg");
-}
 
 /* ---------- Focus + disabled states ---------- */
 .generate-btn:focus-visible,
@@ -648,11 +658,7 @@ footer p {
         grid-template-columns: 1fr;
     }
 
-    .anime-character-container {
-        min-height: 220px;
-        max-width: 240px;
-        margin: 0 auto;
-    }
+  
 }
 @media (max-width: 600px) {
     .quote-box {
@@ -680,4 +686,15 @@ footer p {
         scroll-behavior: auto !important;
     }
 }
-    
+    .app-main .app-subtitle {
+    display: inline-block;
+    padding: 0.5rem 1.4rem;
+    margin-bottom: 2.5rem;
+    color: #ffffff;
+    font-weight: 500;
+    text-shadow: none;
+    background: rgba(15, 23, 42, 0.65);          /* dark pill behind the text */
+    border-radius: 999px;
+    backdrop-filter: blur(6px);                  /* softly blurs the picture behind it */
+    -webkit-backdrop-filter: blur(6px);
+}
