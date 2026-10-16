@@ -1,0 +1,683 @@
+
+/* css mamat */
+
+/* ---------- Design ---------- */
+:root {
+    --navy-900: #0f172a;
+    --navy-800: #1e293b;
+    --navy-700: #334155;
+    --slate-500: #64748b;
+    --slate-300: #cbd5e1;
+    --slate-100: #f1f5f9;
+    --white: #ffffff;
+
+    --accent: #4f46e5;        
+    --accent-dark: #4338ca;
+    --accent-soft: #eef2ff;
+    --gold: #f59e0b;
+
+    /* Character colors */
+    --flins: #7c3aed;        /* purple */
+    --venti: #14b8a6;         /* green */
+    --hutao: #dc2626;         /* red */
+    --hutao-soft: #fee2e2;
+    --anya: #ec4899;          /* pink */
+    --anya-dark: #be185d;
+
+    --radius: 14px;
+    --shadow-sm: 0 2px 8px rgba(15, 23, 42, 0.06);
+    --shadow-md: 0 10px 30px rgba(15, 23, 42, 0.10);
+    --shadow-lg: 0 20px 50px rgba(118, 124, 138, 0.16);
+
+    --font-body: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+    --font-serif: Georgia, "Times New Roman", serif;
+}
+
+/* ---------- Reset & base ---------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    line-height: 1.65;
+    color: var(--navy-700);
+    background: var(--slate-100);
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+    margin: 0 0 0.6em;
+    line-height: 1.2;
+    color: var(--navy-900);
+}
+
+p {
+    margin: 0 0 1em;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* ---------- Footer (both pages) ---------- */
+footer {
+    margin-top: auto;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    background: var(--navy-900);
+    color: var(--slate-300);
+    font-size: 0.9rem;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* ==========================================================
+   PORTFOLIO PAGE (index.html)
+   ========================================================== */
+
+/* ---------- HEADER: Flins sa left tas si Venti right ---------- */
+.portfolio-header {
+    position: relative;
+    padding: 5rem 15rem 6rem;          /* side space so text doesn't hit the characters */
+    text-align: center;
+    color: var(--white); 
+    background:
+        radial-gradient(circle at 12% 45%, rgba(167, 139, 250, 0.45), transparent 40%),
+        radial-gradient(circle at 88% 45%, rgba(45, 212, 191, 0.40), transparent 40%),
+        linear-gradient(90deg, #2e1065 0%, #1e293b 50%, #0f4c4a 100%);
+}
+
+.portfolio-header h1 {
+    color: var(--white);
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    letter-spacing: -0.5px;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+}
+
+.portfolio-header p {
+    margin: 0;
+    font-size: 1.1rem;
+    color: var(--slate-300);
+}
+
+/* Shared settings for both header characters */
+.portfolio-header::before,
+.portfolio-header::after {
+    content: "";
+    position: absolute;
+    bottom: 4rem;
+    width: 200px;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom center;
+    pointer-events: none;
+}
+
+/* Flins sa left  */
+.portfolio-header::before {
+    left: 4%;
+    /* ---------- Image flins ---------- */
+    background-image: url(https://s3.getstickerpack.com/storage/uploads/sticker-pack/genshin-impact-flins/tray_large.png?42fd71868ec5b1e44c98474e6fd4eef2&d=200x200);
+    filter: drop-shadow(0 0 14px rgba(167, 139, 250, 0.7));
+}
+
+/* Venti sa right */
+.portfolio-header::after {
+    right: 4%;
+    /* ---------- Image venti ---------- */
+    background-image: url(https://s3.getstickerpack.com/storage/uploads/sticker-pack/kinich-genshin-impact/sticker_1.png?166942f898139c242c7fa70c2d4cf27c);
+    filter: drop-shadow(0 0 14px rgba(45, 212, 191, 0.7));
+}
+
+.portfolio-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: -3rem auto 0;      /* overlaps header for a layered look */
+    padding: 0 1.5rem 4rem;
+}
+
+/* ---------- ABOUT CARD: Hutao ---------- */
+.project-info {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr auto;   /* text | launch button */
+    column-gap: 2rem;
+    align-items: center;
+    max-width: 900px;                  /* narrower card = less "landscape" */
+    margin: 0 auto;
+    padding: 1.5rem 3.5rem 1.5rem 12.5rem; /* left space for Hutao */
+    min-height: 230px; 
+    background: var(--white);
+    border-radius: var(--radius);
+    border: 2px solid var(--hutao-soft);
+    border-top: 5px solid #a11717;
+    box-shadow: 0 10px 30px rgba(220, 38, 38, 0.12);
+}
+
+.project-info h2 {
+    grid-column: 1;
+    margin-bottom: 0.5rem;
+    font-size: 1.8rem;
+    color: #a01414; 
+    text-align: left;
+}
+
+.project-info p {
+    grid-column: 1;
+    max-width: none;
+    margin: 0;
+    color: var(--slate-500);
+    text-align: justify;              
+    hyphens: none;
+    word-spacing: normal;
+}
+
+.project-info p strong {
+    color: var(--navy-900);
+}
+.project-info::before {
+    content: "";
+    position: absolute;
+    left: 9.2rem;
+    top: 50%;
+    margin-top: -10px;
+    width: 20px;
+    height: 20px;
+    background: var(--white);
+    border-left: 2px solid var(--hutao-soft);
+    border-bottom: 2px solid var(--hutao-soft);
+    transform: rotate(45deg);
+}
+
+
+/* Hutao (left side of the card, facing the text) */
+.project-info::after {
+    content: "";
+    position: absolute;
+    left: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 170px;
+    height: 170px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    /* ---------- Image Hutao ---------- */
+    background-image: url(https://s3.getstickerpack.com/storage/uploads/sticker-pack/genshin-hu-tao/sticker_2.png?da4c6e988cab65e03d4c2e6fce0460ba);
+    filter: drop-shadow(0 0 12px rgba(220, 38, 38, 0.45));
+    pointer-events: none;
+}
+
+/* ---------- LAUNCH BUTTON: beside the text, Anya pointing it ---------- */
+.app-link-container {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    position: relative;
+    display: block;
+    margin: 0;
+    padding-bottom: 8.5rem;   
+}
+
+
+/* Anya - pink hair (bottom-right corner of the button, pointing at it) */
+.app-link-container::before {
+    content: "";
+    position: absolute;
+    top: 3.2rem;              
+    right: -5rem;             
+    z-index: 1;
+    width: 150px;
+    height: 160px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom center;
+    /* ---------- Image anya ---------- */
+    background-image: url("assets/anya.png.png"); 
+    transform: scaleX(-1);
+    filter: drop-shadow(0 4px 8px rgba(236, 72, 153, 0.35));
+    pointer-events: none;
+}
+
+.cta-button {
+    position: relative;
+    top: 3rem;
+    display: inline-block;
+    padding: 0.9rem 1.6rem;
+    font-weight: 600;
+    white-space: nowrap;
+    color: var(--white);
+    background: linear-gradient(135deg, #070707, #515252); 
+    border-radius: 999px;
+    box-shadow: 0 6px 16px rgba(102, 101, 101, 0.35);
+    transition: transform 0.2s ease, filter 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cta-button:hover,
+.cta-button:focus-visible {
+    filter: brightness(1.08);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(163, 161, 162, 0.5);
+}
+
+
+
+/* ---------- Team section ---------- */
+.team-section {
+    margin-top: 3.5rem;
+    text-align: center;
+}
+
+.team-section h2 {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+}
+
+.team-section h2::after {
+    content: "";
+    display: block;
+    width: 50%;
+    height: 4px;
+    margin: 0.5rem auto 0;
+    background: var(--accent);
+    border-radius: 2px;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.75rem;
+}
+
+.member-card {
+    padding: 2rem 1.5rem;
+    background: var(--white);
+    border-radius: var(--radius);
+    border-top: 4px solid var(--accent);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.member-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+}
+
+.member-photo {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1.2rem;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid var(--accent-soft);
+    background: var(--slate-100);  
+    box-shadow: 0 0 0 2px var(--accent);
+   
+}
+
+.member-card h3 {
+    margin-bottom: 0.3rem;
+    font-size: 1.25rem;
+}
+
+.role {
+    display: inline-block;
+    margin-bottom: 1rem;
+    padding: 0.25rem 0.8rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    color: var(--accent-dark);
+    background: var(--accent-soft);
+    border-radius: 999px;
+}
+.member-card:nth-child(1) .member-photo {
+    /* taculod */
+    content: url("assets/member1-photo.png");
+}
+
+/* makiling */
+.member-card:nth-child(2) .member-photo {
+    content: url("assets/member2-photo.png");
+}
+
+/* epanag*/
+.member-card:nth-child(3) .member-photo {
+    content: url("assets/member3-photo.png");
+}
+
+.bio {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--slate-500);
+}
+
+/* ==========================================================
+   QUOTES APP PAGE (app.html)
+   ========================================================== */
+
+.app-header {
+    padding: 1rem 1.5rem;
+    background: var(--navy-900);
+}
+
+.app-header nav {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.back-link {
+    display: inline-block;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--slate-300);
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.back-link:hover,
+.back-link:focus-visible {
+    color: var(--white);
+    transform: translateX(-3px);
+}
+
+.app-main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 1.25rem;
+    background:
+        radial-gradient(circle at 85% 20%, rgba(99, 102, 241, 0.15), transparent 45%),
+        radial-gradient(circle at 10% 90%, rgba(236, 72, 153, 0.08), transparent 40%),
+        var(--slate-100);
+}
+
+.app-container {
+    width: 100%;
+    max-width: 1000px;          /* wider to fit quote box + character */
+    text-align: center;
+}
+
+.app-container h1 {
+    font-size: clamp(1.9rem, 4vw, 2.6rem);
+    letter-spacing: -0.5px;
+}
+
+.app-subtitle {
+    margin-bottom: 2.5rem;
+    color: var(--slate-500);
+}
+
+/* ---------- Workspace: quote box (left) + character (right) ---------- */
+.workspace-layout {
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 2rem;
+    align-items: end;
+}
+
+/* Quote card */
+.quote-box {
+    margin-bottom: 2.5rem; 
+    position: relative;
+    padding: 3.5rem 2.5rem 2.5rem;
+    background: var(--white);
+    border-radius: var(--radius);
+    border-left: 6px solid var(--accent);
+    box-shadow: var(--shadow-md);
+}
+
+.quote-symbol {
+    position: absolute;
+    top: 0.2rem;
+    left: 1.5rem;
+    font-family: var(--font-serif);
+    font-size: 6rem;
+    line-height: 1;
+    color: var(--accent);
+    opacity: 0.18;
+    pointer-events: none;
+    user-select: none;
+}
+
+#quote {
+    min-height: 4.5rem;
+    margin-bottom: 1rem;
+    font-family: var(--font-serif);
+    font-size: clamp(1.2rem, 2.6vw, 1.6rem);
+    font-style: italic;
+    line-height: 1.5;
+    color: var(--navy-900);
+}
+
+.author {
+    margin-bottom: 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    color: var(--accent);
+}
+
+.author:not(:empty)::before {
+    content: "\2014\00a0";   /* em dash before author name */
+}
+
+/* ---------- Buttons: New Quote / Copy / Share ---------- */
+.action-buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.generate-btn {
+    padding: 0.85rem 2.2rem;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--white);
+    background: var(--accent);
+    border: 2px solid var(--accent);
+    border-radius: 999px;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(79, 70, 229, 0.35);
+    transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.generate-btn:hover {
+    background: var(--accent-dark);
+    border-color: var(--accent-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(79, 70, 229, 0.4);
+}
+
+.generate-btn:active {
+    transform: translateY(0);
+}
+
+/* Copy + Share (outlined, so New Quote stays the main action) */
+.secondary-btn {
+    padding: 0.8rem 1.6rem;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--accent);
+    background: var(--white);
+    border: 2px solid var(--accent-soft);
+    border-radius: 999px;
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.secondary-btn:hover {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    transform: translateY(-2px);
+}
+
+.secondary-btn:active {
+    transform: translateY(0);
+}
+
+/* ---------- Anime character slot (click to change picture) ---------- */
+.anime-character-container {
+    width: 100%;
+    min-height: 320px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom center;
+    filter: drop-shadow(0 0 16px rgba(99, 102, 241, 0.45));
+    cursor: pointer;                       /* shows it's clickable */
+    transition: transform 0.2s ease;
+}
+
+.anime-character-container:hover {
+    transform: scale(1.04);
+}
+
+.anime-character-container:active {
+    transform: scale(0.97);
+}
+
+/* ---------- Photo 1 ---------- */
+.anime-character-container.char-1 {
+    background-image: url("assets/quote-character1.jpg");
+}
+
+/* ---------- Photo 2 ---------- */
+.anime-character-container.char-2 {
+    background-image: url("assets/quote-character2.jpg");
+}
+
+/* ---------- Photo 3 ---------- */
+.anime-character-container.char-3 {
+    background-image: url("assets/quote-character3.jpg");
+}
+
+/* ---------- Photo 5 ---------- */
+.anime-character-container.char-4 {
+    background-image: url("assets/quote-character4.jpg");
+}
+
+/* ---------- Focus + disabled states ---------- */
+.generate-btn:focus-visible,
+.secondary-btn:focus-visible,
+.cta-button:focus-visible,
+.back-link:focus-visible {
+    outline: 3px solid var(--gold);
+    outline-offset: 3px;
+}
+
+.generate-btn:disabled,
+.secondary-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ==========================================================
+   RESPONSIVE
+   ========================================================== */
+
+/* Tablets and phones: characters move below the text */
+@media (max-width: 900px) {
+    .portfolio-header {
+        padding: 3.5rem 1rem 10rem;
+    }
+
+    .portfolio-header::before,
+    .portfolio-header::after {
+        width: 130px;
+        height: 130px;
+        bottom: 4rem;
+    }
+
+    .portfolio-header::before { left: 12%; }
+    .portfolio-header::after  { right: 12%; }
+
+    .project-info {
+        padding: 2rem 1.25rem 2rem;
+    }
+
+    .project-info::before {
+        display: none;
+    }
+
+    /* Hu Tao moves on top of the card, above the text */
+    .project-info::after {
+        position: static;
+        display: block;
+        transform: none;
+        width: 150px;
+        height: 150px;
+        margin: 0 auto 1rem;
+    }
+
+       .app-link-container {
+        grid-column: 1;
+        grid-row: auto;
+        justify-self: center;
+        margin-top: 1.5rem;
+        padding-right: 2rem;
+    }
+
+    .workspace-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .anime-character-container {
+        min-height: 220px;
+        max-width: 240px;
+        margin: 0 auto;
+    }
+}
+@media (max-width: 600px) {
+    .quote-box {
+        padding: 3rem 1.5rem 2rem;
+    }
+
+    .quote-symbol {
+        font-size: 4.5rem;
+        left: 1rem;
+    }
+        .action-buttons-container {
+        flex-direction: column;
+    }
+
+    .generate-btn,
+    .secondary-btn {
+        width: 100%;
+    }
+}
+
+/* Respect users who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+}
+    
