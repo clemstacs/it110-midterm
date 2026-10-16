@@ -120,7 +120,9 @@ document.addEventListener("DOMContentLoaded", () => {
     // Display a quote when the page opens
     getRandomQuote();
 
-     // ---------- Click the background to cycle through 4 pictures ----------
+
+
+    // ---------- Click the background to cycle through 4 pictures ----------
     const appMain = document.querySelector('.app-main');
 
     if (appMain) {
@@ -137,8 +139,4 @@ document.addEventListener("DOMContentLoaded", () => {
             appMain.classList.add('bg-' + currentBg);
         });
     }
-}); 
-
-
-
-
+});     
