@@ -119,24 +119,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Display a quote when the page opens
     getRandomQuote();
+});
 
+// ---------- Click the character to cycle through 4 pictures ----------
+const character = document.querySelector('.anime-character-container');
 
+if (character) {                          // only runs on app.html
+    const totalImages = 4;
+    let current = 1;
 
-    // ---------- Click the background to cycle through 4 pictures ----------
-    const appMain = document.querySelector('.app-main');
+    character.classList.add('char-1');    // start on the 1st image
 
-    if (appMain) {
-        const totalBackgrounds = 4;
-        let currentBg = 1;
-
-        appMain.classList.add('bg-1');
-
-        appMain.addEventListener('click', (e) => {
-            if (e.target.closest('.quote-box')) return;
-
-            appMain.classList.remove('bg-' + currentBg);
-            currentBg = (currentBg % totalBackgrounds) + 1;
-            appMain.classList.add('bg-' + currentBg);
-        });
-    }
-});     
+    character.addEventListener('click', () => {
+        character.classList.remove('char-' + current);
+        current = (current % totalImages) + 1;   // 1 → 2 → 3 → 4 → 1
+        character.classList.add('char-' + current);
+    });
+}
